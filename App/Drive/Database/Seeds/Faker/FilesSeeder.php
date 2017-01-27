@@ -1,19 +1,20 @@
-<?php namespace App\Drive\Database\Seeds;
+<?php namespace App\Drive\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
+use App\Drive\Models\Files;
 
 /**
  * 
  *
  * @author Luis Josafat Heredia Contreras
  */
-class FakerSeeder extends InstallSeeder
+class FilesSeeder extends InstallSeeder
 {
     
     public function run()
     {
         
-        $this->call(Faker\FilesSeeder::class);
+        $this->factory(Files::class)->create();
         
     }
     

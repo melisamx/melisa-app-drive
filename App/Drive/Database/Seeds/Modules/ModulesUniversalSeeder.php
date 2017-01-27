@@ -13,7 +13,7 @@ class ModulesUniversalSeeder extends Seeder
     public function run()
     {
         
-        //$this->call(Universal\Seeder::class);
+        $this->call(Universal\FilesPagingSeeder::class);
         
     }
     

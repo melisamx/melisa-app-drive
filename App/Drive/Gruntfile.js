@@ -1,10 +1,10 @@
 module.exports = function(grunt) {
     
     grunt.initConfig({
-        main: {
+        pkg: {
             appName: 'Drive',
             src: 'resources/assets/',
-            output: '../../public/<%= main.appName.toLowerCase() %>/',
+            output: '../../public/<%= pkg.appName.toLowerCase() %>/',
             proyect: {
                 name: 'Melisa Drive',
                 version: '1.0.0',
@@ -17,12 +17,12 @@ module.exports = function(grunt) {
             },
             all: {
                 files: {
-//                    '<%= main.output %>css/app.css': '<%= main.src %>less/app.less'
+                    '<%= pkg.output %>css/browser-view.css': '<%= pkg.src %>less/browser-view.less'
                 }
             }
         },
         watch: {
-            files: ['<%= main.src %>less/**/*.less'],
+            files: ['<%= pkg.src %>less/**/*.less'],
             tasks: ['less']
         }
     });
