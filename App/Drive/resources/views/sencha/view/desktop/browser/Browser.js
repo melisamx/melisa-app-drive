@@ -18,15 +18,13 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
             renderer: function(value, cell, record) {
                 
                 return [
-//                    '<span class="fa-stack fa-lg">',
-                        '<i class="fa fa-circle fa-stack-2x"></i>',
-                        '<i class="',
-                        record.data.iconCls,
-                        '"></i> ',
-                        '<span class="text">',
-                            value,
-                        '</span>'
-//                    '</span>'
+                    '<i class="fa fa-circle fa-stack-2x"></i>',
+                    '<i class="',
+                    record.data.iconCls,
+                    '"></i> ',
+                    '<span class="text">',
+                        value,
+                    '</span>'
                 ].join('');
                 
             }
@@ -44,10 +42,7 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
             xtype: 'numbercolumn',
             text: 'Tamaño del archivo', 
             dataIndex: 'size',
-            decimalPrecision: 2,
-            decimalSeparation: ',',
-            thousandSeparation: '.'
-//            format: '0,000.00'
+            renderer: Ext.util.Format.fileSize
         }
     ],
     bbar: {
