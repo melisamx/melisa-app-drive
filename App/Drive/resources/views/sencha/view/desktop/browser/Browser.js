@@ -48,23 +48,6 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
-    },
-    plugins: [
-        {
-            ptype: 'autofilters',
-            filters: {
-                name: {
-                    operator: 'like'
-                },
-                size: {
-                    operator: 'like'
-                }
-            },
-            filtersIgnore: [
-                'createdAt',
-                'updatedAt'
-            ]
-        }
-    ]
+    }
     
 });

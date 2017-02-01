@@ -25,7 +25,8 @@ class MimesTypesSeeder extends InstallSeeder
         MimesTypes::updateOrCreate([
             'name'=>'application/vnd.melisa-apps.folder',
         ], [
-            'iconCls'=>'x-fa fa fa-folder'
+            'iconCls'=>'x-fa fa fa-folder',
+            'order'=>0,
         ]);
         
         MimesTypes::updateOrCreate([

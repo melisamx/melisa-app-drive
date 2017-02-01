@@ -2,6 +2,10 @@ Ext.define('Melisa.drive.view.desktop.browser.NewButton', {
     extend: 'Ext.button.Split',
     alias: 'widget.drivebrowserbuttonnew',
     
+    requires: [
+        'Melisa.drive.view.desktop.upload.manager.BrowseButton'
+    ],
+    
     cls: 'button-new',
     text: 'Nuevo',
     plain: true,
@@ -18,7 +22,16 @@ Ext.define('Melisa.drive.view.desktop.browser.NewButton', {
             },
             {
                 text: 'Subir archivo',
-                iconCls: 'x-fa fa-upload'
+                iconCls: 'x-fa fa-upload',
+                handler: 'onClickBtnUploadFile'
+            },
+            {
+                xtype: 'driveuploadbrowsebutton',
+                reference: 'btnBrowseUpload',
+                hidden: true,
+                listeners: {
+                    fileselected: 'onFilesSelected'
+                }
             },
             '-',
             {

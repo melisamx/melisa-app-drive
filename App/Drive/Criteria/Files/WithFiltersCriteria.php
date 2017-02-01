@@ -2,6 +2,7 @@
 
 use Melisa\Laravel\Criteria\FilterCriteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
+use Melisa\Laravel\Criteria\ApplySort;
 
 /**
  * 
@@ -10,25 +11,28 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
  */
 class WithFiltersCriteria extends FilterCriteria
 {
+    use ApplySort;
     
     public function apply($model, RepositoryInterface $repository, array $input = [])
     {
         
         $builder = parent::apply($model, $repository, $input);
         
-        if( isset($input['query'])) {
-            
-            $builder = $builder->where('Firmas.nombre', 'like', '%' . $input['query'] . '%');
-            
-        }
-        
-        return $builder
+        $builder = $builder
             ->join('MimesTypes as mt', 'mt.id', '=', 'Files.idMimeType')
-            ->orderBy('Files.name')
+            ->orderBy('mt.order', 'asc')
             ->select([
                 'Files.*',
                 'mt.iconCls'
             ]);
+        
+        if( empty($input['sort'])) {
+            $builder = $builder->orderBy('Files.name', 'asc');
+        } else {
+            $builder = $this->applySort($builder, $input);
+        }
+        
+        return $builder;
         
     }
     

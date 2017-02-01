@@ -185,6 +185,7 @@ return [
         Melisa\Laravel\Providers\HelpersProvider::class,
         Melisa\Laravel\Providers\ResponseMacroServiceProvider::class,
         Melisa\Laravel\Providers\SanitizerServiceProvider::class,
+        Melisa\Laravel\Providers\ValidatorServiceProvider::class,
 
     ],
 
