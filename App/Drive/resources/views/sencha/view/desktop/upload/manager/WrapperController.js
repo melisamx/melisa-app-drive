@@ -61,12 +61,21 @@ Ext.define('Melisa.drive.view.desktop.upload.manager.WrapperController', {
             listeners: {
                 fileadd: me.onFileAdd,
                 fileprogress: me.onFileProgress,
+                uploadallfinish: me.onUploadAllFinish,
                 scope: me
             }
         });
         
         me.setManager(manager);
         return manager;
+        
+    },
+    
+    onUploadAllFinish: function() {
+        
+        var me = this;
+        
+        me.getView().fireEvent('uploadallfinish');
         
     },
     

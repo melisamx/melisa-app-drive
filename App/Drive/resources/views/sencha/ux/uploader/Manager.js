@@ -80,6 +80,7 @@ Ext.define('Melisa.drive.ux.uploader.Manager', {
             uploader = me.createUploader();
     
         if (!nextItem) {
+            me.fireEvent('uploadallfinish');
             return;
         }
         
@@ -115,10 +116,9 @@ Ext.define('Melisa.drive.ux.uploader.Manager', {
     },
     
     onUploadSuccess: function (item, info) {
-        console.log('onUploadSuccess', arguments);
-        
+              
         var me = this;
-        
+        console.log('onUploadSuccess', arguments);  
         item.setUploaded();
         me.setUploading(false);
         me.uploadNextItem();
@@ -126,15 +126,18 @@ Ext.define('Melisa.drive.ux.uploader.Manager', {
     },
     
     onUploadFailure: function () {
-        console.log('onUploadFailure', arguments);
+        
         var me = this;
+        console.log('onUploadFailure', arguments);
         me.setUploading(false);
         me.uploadNextItem();
+        
     },
     
     onUploadProgress: function (item, event) {
-        console.log('onUploadProgress', arguments);
+        
         var me = this;
+        console.log('onUploadProgress', arguments);
         item.setProgress(event.loaded);
         me.fireEvent('fileprogress', item, me);
         

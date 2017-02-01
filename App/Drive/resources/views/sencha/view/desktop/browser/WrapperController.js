@@ -38,10 +38,21 @@ Ext.define('Melisa.drive.view.desktop.browser.WrapperController', {
             return manager;
         }
         
-        manager = Ext.create('widget.driveuploadmanager');
+        manager = Ext.create('widget.driveuploadmanager', {
+            listeners: {
+                uploadallfinish: me.onUploadAllFinish,
+                scope: me
+            }
+        });
         manager.getViewModel().set('token', me.getViewModel().get('token'));
         me.setManager(manager);
         return manager;
+        
+    },
+    
+    onUploadAllFinish: function () {
+        console.log('onUploadAllFinish');
+        this.getViewModel().getStore('files').load();
         
     }
     
