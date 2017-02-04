@@ -57,7 +57,7 @@ class MimesTypesSeeder extends InstallSeeder
         ]);
         
         MimesTypes::updateOrCreate([
-            'name'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'name'=>'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         ], [
             'iconCls'=>'x-fa fa fa-file-text'
         ]);

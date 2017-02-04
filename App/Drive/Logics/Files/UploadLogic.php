@@ -69,7 +69,12 @@ class UploadLogic
     public function storeFile($file)
     {
         
-        $path = $file->store('uploads');
+        $extension = $file->getClientOriginalExtension();
+        $name = $file->getClientOriginalName();
+        $mime = $file->getClientMimeType();
+        $nameSave = app('uuid')->v5();
+        
+        $path = $file->storeAs('uploads', $nameSave . '.' . $extension);
         
         if( !$path) {
             return $this->error('Imposible save file upload');
@@ -77,13 +82,14 @@ class UploadLogic
         
         $realpath = storage_path() . '/app/' . $path;
         $md5File = md5_file($realpath);
+        $size = filesize($realpath);
         
         return [
             'path'=>$path,
-            'extension'=>$file->extension(),
-            'mimeType'=>$file->getMimeType(),
-            'originalName'=>$file->getClientOriginalName(),
-            'size'=>$file->getClientSize(),
+            'extension'=>$extension,
+            'mimeType'=>$mime,
+            'originalName'=>$name,
+            'size'=>$size,
             'md5'=>$md5File,
             'realpath'=>$realpath,
         ];

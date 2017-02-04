@@ -14,6 +14,7 @@ class ModulesUniversalSeeder extends Seeder
     {
         
         $this->call(Universal\FilesPagingSeeder::class);
+        $this->call(Universal\Files\ViewSeeder::class);
         
     }
     

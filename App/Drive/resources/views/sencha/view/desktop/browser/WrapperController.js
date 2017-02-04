@@ -10,6 +10,17 @@ Ext.define('Melisa.drive.view.desktop.browser.WrapperController', {
         manager: null
     },
     
+    onItemdblclickFile: function (gv, record) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            url = vm.get('modules.filesView') + record.get('id') + '/',
+            win = window.open(url, '_blank');
+    
+        win.focus();
+        
+    },
+    
     onClickBtnUploadFile: function() {
         
         var me = this,

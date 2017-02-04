@@ -22,6 +22,9 @@ Ext.define('Melisa.drive.view.desktop.browser.Wrapper', {
         {
             region: 'center',
             xtype: 'drivebrowser',
+            listeners: {
+                itemdblclick: 'onItemdblclickFile'
+            },
             dockedItems: [
                 {
                     xtype: 'toolbar',

@@ -21,6 +21,7 @@ class ViewModule extends Outbuildings
                 'token'=>csrf_token(),
                 'modules'=>[
                     'files'=>$this->module('task.drive.files.paging'),
+                    'filesView'=>$this->module('task.drive.files.view'),
                 ],
                 'wrapper'=>[
                     'title'=>'Navegador de archivos'

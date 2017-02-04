@@ -7,6 +7,7 @@ use App\Drive\Http\Requests\Files\UploadRequest;
 use App\Drive\Repositories\FilesRepository;
 use App\Drive\Criteria\Files\WithFiltersCriteria;
 use App\Drive\Logics\Files\UploadLogic;
+use App\Drive\Logics\Files\ViewLogic;
 
 /**
  * 
@@ -29,6 +30,19 @@ class FilesController extends Controller
     {
         
         return response()->data($logic->init($request->file));
+        
+    }
+    
+    public function view($id, ViewLogic $logic)
+    {
+        
+        $fileConfig = $logic->init($id);
+        
+        if( !$fileConfig) {
+            return response()->data(false);
+        }
+        
+        return response()->file($fileConfig['path'], $fileConfig['headers']);
         
     }
     
