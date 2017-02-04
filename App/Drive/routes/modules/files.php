@@ -1,4 +1,6 @@
 <?php 
 
-Route::get('/', 'FilesController@paging')->middleware('gate:task.drive.files.paging');
 Route::post('/', 'FilesController@create')->middleware('gate:task.drive.files.create');
+
+Route::get('/', 'FilesController@paging')->middleware('gate:task.drive.files.paging');
+Route::get('select', 'FilesController@select')->middleware('gate:task.drive.files.select.access');

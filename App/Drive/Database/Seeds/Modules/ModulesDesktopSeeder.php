@@ -14,6 +14,7 @@ class ModulesDesktopSeeder extends Seeder
     {
         
         $this->call(Desktop\BrowserViewSeeder::class);
+        $this->call(Desktop\Files\SelectSeeder::class);
         
     }
     
