@@ -1,4 +1,5 @@
 nbproject
 vendor
+.env
 composer.lock
 App/**/node_modules

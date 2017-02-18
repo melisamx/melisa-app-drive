@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'core'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ return [
 
     'connections' => [
 
-        'mysql' => [
+        'core' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
