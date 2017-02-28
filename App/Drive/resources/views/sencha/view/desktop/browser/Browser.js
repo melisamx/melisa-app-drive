@@ -36,12 +36,16 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
         },
         {
             text: 'Ultima modificación',
-            dataIndex: 'updatedAt'
+            dataIndex: 'updatedAt',
+            align: 'center',
+            width: 170
         },
         {
             xtype: 'numbercolumn',
-            text: 'Tamaño del archivo', 
+            text: 'Tamaño', 
             dataIndex: 'size',
+            align: 'center',
+            width: 100,
             renderer: Ext.util.Format.fileSize
         }
     ],
