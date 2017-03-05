@@ -28,7 +28,10 @@ class BrowserViewSeeder extends InstallSeeder
                 'option'=>[
                     'key'=>'option.drive.browser.view.access',
                     'name'=>'Opción para ver navegador de archivos',
-                    'text'=>'Navegador de archivos'
+                    'text'=>'Navegador de archivos',
+                    'iconClassSmall'=>'x-fa fa fa-hdd-o',
+                    'iconClassMedium'=>'x-fa fa-hdd-o',
+                    'iconClassLarge'=>'x-fa fa fa-hdd-o',
                 ],
             ],
         ]);

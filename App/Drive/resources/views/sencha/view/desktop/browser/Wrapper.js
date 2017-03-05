@@ -18,6 +18,7 @@ Ext.define('Melisa.drive.view.desktop.browser.Wrapper', {
     cls: 'app-drive-browser',
     layout: 'border',
     controller: 'drivebrowser',
+    iconCls: 'x-fa fa fa-hdd-o',
     items: [
         {
             region: 'center',
