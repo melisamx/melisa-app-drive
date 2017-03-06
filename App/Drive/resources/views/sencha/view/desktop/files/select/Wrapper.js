@@ -15,6 +15,7 @@ Ext.define('Melisa.drive.view.desktop.files.select.Wrapper', {
     controller: 'drivefilesselect',
     cls: 'app-drive-browser',
     layout: 'border',
+    bodyPadding: 0,
     bind: {
         title: '{wrapper.title}'
     },

@@ -17,7 +17,8 @@ class ApplicationSeeder extends InstallSeeder
             'name'=>'Drive',
             'description'=>'Application Drive',
             'nameSpace'=>'Melisa.drive',
-            'typeSecurity'=>'art'
+            'typeSecurity'=>'art',
+            'version'=>'1.0.4'
         ]);
         
     }
