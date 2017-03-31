@@ -33,6 +33,10 @@ class BrowserViewSeeder extends InstallSeeder
                     'iconClassMedium'=>'x-fa fa-hdd-o',
                     'iconClassLarge'=>'x-fa fa fa-hdd-o',
                 ],
+                'event'=>[
+                    'key'=>'event.drive.browser.view.access',
+                    'description'=>'Acceso al módulo navegador de archivos'
+                ]
             ],
         ]);
         

@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class SelectModule extends Outbuildings
 {
     
+    public $event = 'drive.files.select.access';
+    
     public function dataDictionary() {
         
         return [

@@ -25,6 +25,10 @@ class SelectSeeder extends InstallSeeder
                     'description'=>'Permitir acceso a seleccionar archivos',
                     'pattern'=>'access'
                 ],
+                'event'=>[
+                    'key'=>'event.drive.files.select.access',
+                    'description'=>'Acceso al módulo seleccionar archivos'
+                ]
             ],
         ]);
         

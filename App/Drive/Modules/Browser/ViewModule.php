@@ -10,6 +10,8 @@ use App\Core\Logics\Modules\Outbuildings;
 class ViewModule extends Outbuildings
 {
     
+    public $event = 'drive.browser.view.access';
+    
     public function dataDictionary() {
         
         return [
