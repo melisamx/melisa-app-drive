@@ -1,5 +1,6 @@
 <?php namespace App\Drive\Logics\Files;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Melisa\core\LogicBusiness;
 use App\Drive\Repositories\FilesRepository;
@@ -35,17 +36,16 @@ class UploadLogic
     public function init(UploadedFile $file)
     {
         
-        $fileInfo = $this->storeFile($file);
+        $this->filesRepo->beginTransaction();
+        
+        $unit = $this->getUnitAsign();
+        $fileInfo = $this->storeFile($file, $unit);
         
         if ( !$fileInfo) {
             return false;
         }
         
-        $this->filesRepo->beginTransaction();
-        
         $mime = $this->getMimeTypeAsign($fileInfo['mimeType']);
-        $unit = $this->getUnitAsign();
-        
         $idFile = $this->createFile($fileInfo, $unit->id, $mime->id);
         
         if( !$idFile) {
@@ -66,7 +66,7 @@ class UploadLogic
         
     }
     
-    public function storeFile($file)
+    public function storeFile(&$file, &$unit)
     {
         
         $extension = $file->getClientOriginalExtension();
@@ -74,13 +74,13 @@ class UploadLogic
         $mime = $file->getClientMimeType();
         $nameSave = app('uuid')->v5();
         
-        $path = $file->storeAs('uploads', $nameSave . '.' . $extension);
+        $path = $file->storeAs(null, $nameSave . '.' . $extension, 'files');
         
         if( !$path) {
             return $this->error('Imposible save file upload');
         }
         
-        $realpath = storage_path() . '/app/' . $path;
+        $realpath = $unit->source . $path;
         $md5File = md5_file($realpath);
         $size = filesize($realpath);
         

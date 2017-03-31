@@ -88,7 +88,7 @@ class ViewLogic
     public function getPathFile(&$file)
     {
         
-        $path = storage_path();
+        $path = $file->unit->source;
         $path .= '/app/' . $file->originalFilename;
         return $path;
         

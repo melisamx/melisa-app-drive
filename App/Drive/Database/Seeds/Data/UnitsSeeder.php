@@ -15,10 +15,12 @@ class UnitsSeeder extends InstallSeeder
     {
         
         $identity = $this->findIdentity();
+        $source = env('UNIT_SOURCE');
         
         Units::updateOrCreate([
             'name'=>'default',
         ], [
+            'source'=>$source,
             'idIdentityCreated'=>$identity->id
         ]);
         

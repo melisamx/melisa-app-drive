@@ -12,4 +12,9 @@ class Files extends FilesAbstract
         return $this->hasOne('App\Drive\Models\MimesTypes', 'id', 'idMimeType');
     }
     
+    public function unit()
+    {
+        return $this->hasOne('App\Drive\Models\Units', 'id', 'idUnit');
+    }
+    
 }
