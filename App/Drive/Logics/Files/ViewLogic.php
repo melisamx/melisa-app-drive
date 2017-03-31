@@ -89,7 +89,7 @@ class ViewLogic
     {
         
         $path = $file->unit->source;
-        $path .= '/app/' . $file->originalFilename;
+        $path .= $file->originalFilename;
         return $path;
         
     }
