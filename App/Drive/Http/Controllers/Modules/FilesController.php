@@ -2,6 +2,7 @@
 
 use Melisa\Laravel\Http\Controllers\Controller;
 use App\Drive\Modules\Files\SelectModule;
+use App\Drive\Modules\Files\Phone\SelectModule as SelectPhoneModule;
 
 /**
  * 
@@ -12,10 +13,13 @@ class FilesController extends Controller
 {
     
     public function select(SelectModule $module)
-    {
-        
-        return $module->render();
-        
+    {        
+        return $module->render();        
+    }
+    
+    public function selectPhone(SelectPhoneModule $module)
+    {        
+        return $module->render();        
     }
         
 }
