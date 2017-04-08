@@ -24,6 +24,7 @@ class ViewModule extends Outbuildings
                 'modules'=>[
                     'files'=>$this->module('task.drive.files.paging'),
                     'filesView'=>$this->module('task.drive.files.view'),
+                    'imagesView'=>$this->module('task.drive.images.view'),
                 ],
                 'wrapper'=>[
                     'title'=>'Navegador de archivos'

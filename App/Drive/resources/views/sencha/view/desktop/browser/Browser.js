@@ -17,6 +17,22 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
             flex: 1,
             renderer: function(value, cell, record) {
                 
+                var me = this,
+                    imagesView = me.imagesView;
+                
+                if( record.data.mimeType.indexOf('image') !== -1) {
+                    
+                    return [
+                        '<img class="preview" src="' + imagesView,
+                            record.data.id,
+                            '/32/32/" />',
+                        '<span class="text">',
+                            value,
+                        '</span>'
+                    ].join('');
+                
+                }
+                
                 return [
                     '<i class="fa fa-circle fa-stack-2x"></i>',
                     '<i class="',
@@ -29,11 +45,11 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
                 
             }
         },
-        {
-            text: 'Propietario', 
-            dataIndex: 'property',
-            flex: 1
-        },
+//        {
+//            text: 'Propietario', 
+//            dataIndex: 'property',
+//            flex: 1
+//        },
         {
             text: 'Ultima modificación',
             dataIndex: 'updatedAt',

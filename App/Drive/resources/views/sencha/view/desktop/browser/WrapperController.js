@@ -10,6 +10,20 @@ Ext.define('Melisa.drive.view.desktop.browser.WrapperController', {
         manager: null
     },
     
+    
+    onRender: function() {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            grid = me.getView().down('drivebrowser');
+        
+        me.callParent();
+        
+        grid.filesView = vm.get('modules.filesView');
+        grid.imagesView = vm.get('modules.imagesView');
+        
+    },
+    
     onItemdblclickFile: function (gv, record) {
         
         var me = this,

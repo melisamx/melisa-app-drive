@@ -22,6 +22,8 @@ class SelectModule extends Outbuildings
             'data'=>[
                 'modules'=>[
                     'files'=>$this->module('task.drive.files.paging'),
+                    'filesView'=>$this->module('task.drive.files.view'),
+                    'imagesView'=>$this->module('task.drive.images.view'),
                 ],
                 'wrapper'=>[
                     'title'=>'Seleccionar archivos'

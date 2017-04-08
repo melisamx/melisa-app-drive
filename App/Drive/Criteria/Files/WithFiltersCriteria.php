@@ -23,7 +23,8 @@ class WithFiltersCriteria extends FilterCriteria
             ->orderBy('mt.order', 'asc')
             ->select([
                 'Files.*',
-                'mt.iconCls'
+                'mt.iconCls',
+                'mt.name as mimeType'
             ]);
         
         if( empty($input['sort'])) {

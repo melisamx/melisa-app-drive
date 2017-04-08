@@ -16,3 +16,11 @@ Route::group([
     require realpath(base_path() . '/routes/modules/files.php');
     
 });
+
+Route::group([
+    'prefix'=>'images',
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/images.php');
+    
+});
