@@ -1,0 +1,214 @@
+@import 'browser-details';
+
+.app-drive-browser
+{
+    .searchfield
+    {
+        
+        .x-form-text-default
+        {
+            padding-left: 33px;
+        }
+        
+        .x-form-text-wrap:before
+        {
+            content: '\f002';
+            font-family: FontAwesome;
+            position: absolute;
+            top: 7px;
+            left: 4px;
+            width: 18px;
+            height: 18px;
+            font-size: 18px;
+        }
+        
+    }
+    
+    .browser
+    {
+                        
+        .label
+        {
+            color: #555;
+            font-weight: bold;
+        }
+        
+        .x-grid-with-row-lines .x-grid-item.x-grid-item-selected
+        {
+            
+        }
+        
+        .text
+        {
+            padding-left: 40px;
+        }        
+        
+        .fa,
+        .preview
+        {
+            height: 32px;
+            width: 32px;
+            color: #8F8F8F;
+            position: absolute;
+        }
+        
+        .preview
+        {
+            top: 10px;
+        }
+        
+        .fa::before
+        {
+            font-size: 18px;
+            top: 13px;
+            left: 10px;
+            position: absolute;
+        }
+        
+        .x-column-header
+        {
+            border-right: none;
+        }
+        
+        .fa-stack-2x
+        {
+            display: none;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+            background-color: #fff;
+            left: 12px;
+            top: 11px;
+        }
+        
+        .x-grid-item-selected
+        {
+            background-color: var(--color-primary);
+            
+            .x-grid-cell-inner
+            {
+                color: #fff;
+            }
+            
+            .fa-stack-2x
+            {
+                display: block;
+            }
+            
+            .fa-stack-2x::before
+            {
+                position: absolute;
+                
+            }
+            
+        }
+        
+        .x-grid-cell-inner
+        {
+            line-height: 42px;
+            font-family: Roboto;
+        }
+        
+    }
+    
+    .wrapper-button-new
+    {
+        background-color: var(--color-second);
+    }
+    
+    .button-new
+    {
+        
+        transition: background-color 0.4s ease 0s;
+        
+        &,
+        &.x-btn-pressed,
+        &.x-btn-menu-active
+        {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            
+            .x-btn-inner
+            {
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
+        
+        &.x-btn-over
+        {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+        }
+        
+    }
+    
+    .button-new-menu
+    {
+        .x-menu-item.x-menu-item-focus
+        {
+            background-color: #E1E1E1;
+        }
+    }
+    
+    .navigation-options
+    {
+        padding: 2px;
+        
+        .option
+        {
+            padding-left: 20px;
+        }
+        
+        .option, .x-btn.x-btn-pressed.option
+        {
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: none;            
+        }
+        
+        .x-btn.x-btn-pressed.option::before
+        {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background-color: #4285f4;
+            top: 0;
+            left: 0px;
+        }
+        
+        .x-btn-inner-default-small,
+        .x-btn-icon-el
+        {
+            color: #8F8F8F;
+        }
+        
+        .x-btn-icon-el
+        {
+            font-size: 22px;
+        }
+        
+        .x-btn-inner
+        {
+            font-size: 13px;
+            margin-left: 20px;
+            /*color: #222;*/
+        }
+        
+        .x-btn.x-btn-pressed.option
+        {
+            .x-btn-icon-el
+            {
+                color: #4285f4;
+            }
+            
+            .x-btn-inner
+            {
+                font-weight: bold;
+            }
+            
+        }
+        
+    }
+    
+}

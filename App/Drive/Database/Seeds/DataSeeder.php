@@ -13,7 +13,8 @@ class DataSeeder extends InstallSeeder
     public function run()
     {
         
-        //$this->call(Data\Seeder::class);
+        $this->call(Data\MimesTypesSeeder::class);
+        $this->call(Data\UnitsSeeder::class);
         
     }
     

@@ -13,7 +13,8 @@ class ModulesDesktopSeeder extends Seeder
     public function run()
     {
         
-        //$this->call(Desktop\::class);
+        $this->call(Desktop\BrowserViewSeeder::class);
+        $this->call(Desktop\Files\SelectSeeder::class);
         
     }
     

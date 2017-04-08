@@ -16,6 +16,9 @@ class OptionsSeeder extends InstallSeeder
         $this->installOption('option.drive.access', [
             'name'=>'Option main de aplicación drive',
             'text'=>'Drive',
+            'iconClassSmall'=>'x-fa fa fa-cube',
+            'iconClassMedium'=>'x-fa fa-cube',
+            'iconClassLarge'=>'x-fa fa fa-cube',
             'isSubMenu'=>true
         ]);
         

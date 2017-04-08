@@ -13,7 +13,10 @@ class ModulesUniversalSeeder extends Seeder
     public function run()
     {
         
-        //$this->call(Universal\Seeder::class);
+        $this->call(Universal\FilesPagingSeeder::class);
+        $this->call(Universal\Files\ViewSeeder::class);
+        $this->call(Universal\Images\ViewSeeder::class);
+        $this->call(Universal\Files\PublicSeeder::class);
         
     }
     

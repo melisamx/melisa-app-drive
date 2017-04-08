@@ -13,7 +13,7 @@ class FakerSeeder extends InstallSeeder
     public function run()
     {
         
-        //$this->call(Faker\ClientesDomiciliosSeeder::class);
+        $this->call(Faker\FilesSeeder::class);
         
     }
     

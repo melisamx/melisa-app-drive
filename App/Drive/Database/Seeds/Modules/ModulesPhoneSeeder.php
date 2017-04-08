@@ -13,7 +13,7 @@ class ModulesPhoneSeeder extends Seeder
     public function run()
     {
         
-        //$this->call(Phone\::class);
+        $this->call(Phone\Files\SelectSeeder::class);
         
     }
     
