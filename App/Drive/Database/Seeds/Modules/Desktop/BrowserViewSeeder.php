@@ -45,6 +45,11 @@ class BrowserViewSeeder extends InstallSeeder
             'path'=>'/drive/css/browser-view.css',
         ]);
         
+        $this->installAssetCss('app.drive.phone.browser.view', [
+            'name'=>'CSS ver navegador de archivos (phone)',
+            'path'=>'/drive/css/phone-browser-view.css',
+        ]);
+        
     }
     
 }

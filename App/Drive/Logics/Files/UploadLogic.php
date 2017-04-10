@@ -55,6 +55,11 @@ class UploadLogic
         $event = [
             'idFile'=>$idFile,
             'idUnit'=>$unit->id,
+            'idMimeType'=>$mime->id,
+            'mimeType'=>$mime->name,
+            'fileExtension'=>$fileInfo['extension'],
+            'name'=>$fileInfo['originalName'],
+            'size'=>$fileInfo['size'],
         ];
         
         if( !$this->emitEvent('app.drive.file.upload.success', $event)) {

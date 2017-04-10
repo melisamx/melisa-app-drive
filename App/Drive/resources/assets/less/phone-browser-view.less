@@ -1,0 +1,116 @@
+.app-drive-phone-browser
+{
+    
+    .browser
+    {
+        
+        .x-list-paging,
+        .x-itemheader
+        {
+            float: left;
+        }
+        
+        .x-itemheader
+        {
+            width: 100%;
+        }
+        
+        .x-listitem
+        {
+            float: left;
+            width: 48%;
+            border-top: none;
+            
+            transition-property: background-color;
+            transition-duration: .2s;
+            transition-timing-function: linear;
+            
+            &.x-selected
+            {
+                .icon-selected
+                {
+                    display: block;
+                }
+                
+                .preview
+                {
+                    transform: scale(0.8);
+                }
+                
+            }
+            
+        }
+        
+        .x-simplelistitem
+        {
+            flex-direction: column;
+            
+            .x-listitem-body
+            {
+                padding: 4px !important;
+            }
+            
+        }
+                        
+        .wrapper
+        {
+            color: #555;
+            font-weight: bold;
+            position: relative;
+            
+            .preview
+            {
+                width: 100%;
+                transition-property: transform;
+                transition-duration: .2s;
+                transition-timing-function: linear;
+            }
+            
+            .text
+            {
+                padding-left: 60px;
+                line-height: 52px;
+            }
+            
+            .icon-selected
+            {
+                display: none;
+                top: 5%;
+                left: 5%;
+                font-size: 33px;
+                background-color: var(--color-primary);
+                border-radius: 50%;
+                width: 33px;
+                position: absolute;
+                color: #fff;               
+            }
+            
+        }
+        
+        .icon
+        {
+            top: 10px;
+        }
+        
+        .icon::before
+        {
+            font-size: 18px;
+            top: 5px;
+            left: 10px;
+            position: absolute;
+        }
+        
+        .fa-stack-2x
+        {
+            display: none;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+            background-color: #fff;
+            left: 12px;
+            top: 11px;
+        }
+        
+    }
+    
+}
