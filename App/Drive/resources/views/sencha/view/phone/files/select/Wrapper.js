@@ -1,8 +1,9 @@
 Ext.define('Melisa.drive.view.phone.files.select.Wrapper', {
-    extend: 'Ext.Container',
+    extend: 'Melisa.view.phone.default.Wrapper',
     
     requires: [
         'Melisa.core.Module',
+        'Melisa.view.phone.default.Wrapper',
         'Melisa.drive.view.phone.browser.Browser',
         'Melisa.drive.view.phone.files.select.WrapperController',
         'Melisa.drive.view.universal.files.select.WrapperModel',
@@ -17,11 +18,6 @@ Ext.define('Melisa.drive.view.phone.files.select.Wrapper', {
     controller: 'drivefilesselect',
     cls: 'app-drive-phone-browser',
     layout: 'card',
-    hideAnimation: 'fadeOut',
-    showAnimation: {
-        type: 'slide',
-        direction: 'right'
-    },
     viewModel: {
         type: 'drivefilesselect'
     },
