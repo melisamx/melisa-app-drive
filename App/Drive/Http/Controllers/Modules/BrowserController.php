@@ -1,7 +1,7 @@
 <?php namespace App\Drive\Http\Controllers\Modules;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use App\Drive\Modules\Browser\ViewModule;
+use App\Drive\Modules\Desktop\Browser\ViewModule;
 
 /**
  * 
@@ -12,10 +12,8 @@ class BrowserController extends Controller
 {
     
     public function view(ViewModule $module)
-    {
-        
-        return $module->render();
-        
+    {        
+        return $module->render();        
     }
         
 }

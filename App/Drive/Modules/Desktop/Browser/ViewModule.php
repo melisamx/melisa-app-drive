@@ -1,4 +1,4 @@
-<?php namespace App\Drive\Modules\Files\Phone;
+<?php namespace App\Drive\Modules\Desktop\Browser;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -7,17 +7,17 @@ use App\Core\Logics\Modules\Outbuildings;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class SelectModule extends Outbuildings
+class ViewModule extends Outbuildings
 {
     
-    public $event = 'drive.files.phone.select.access';
+    public $event = 'drive.browser.view.access';
     
     public function dataDictionary() {
         
         return [
             'success'=>true,
             'assets'=>[
-                $this->asset('app.drive.phone.browser.view')
+                $this->asset('app.drive.browser.view')
             ],
             'data'=>[
                 'token'=>csrf_token(),
@@ -27,7 +27,7 @@ class SelectModule extends Outbuildings
                     'imagesView'=>$this->module('task.drive.images.view'),
                 ],
                 'wrapper'=>[
-                    'title'=>'Seleccionar archivos'
+                    'title'=>'Navegador de archivos'
                 ]
             ]
         ];

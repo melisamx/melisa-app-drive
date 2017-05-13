@@ -1,8 +1,8 @@
 <?php namespace App\Drive\Http\Controllers\Modules;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use App\Drive\Modules\Files\SelectModule;
-use App\Drive\Modules\Files\Phone\SelectModule as SelectPhoneModule;
+use App\Drive\Modules\Desktop\Files\SelectModule;
+use App\Drive\Modules\Phone\Files\SelectModule as SelectPhoneModule;
 
 /**
  * 

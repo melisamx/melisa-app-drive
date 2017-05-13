@@ -1,4 +1,4 @@
-<?php namespace App\Drive\Modules\Files;
+<?php namespace App\Drive\Modules\Phone\Files;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -10,14 +10,14 @@ use App\Core\Logics\Modules\Outbuildings;
 class SelectModule extends Outbuildings
 {
     
-    public $event = 'drive.files.select.access';
+    public $event = 'drive.files.phone.select.access';
     
     public function dataDictionary() {
         
         return [
             'success'=>true,
             'assets'=>[
-                $this->asset('app.drive.browser.view')
+                $this->asset('app.drive.phone.browser.view')
             ],
             'data'=>[
                 'token'=>csrf_token(),
