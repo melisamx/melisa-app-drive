@@ -12,10 +12,8 @@ Ext.define('Melisa.drive.view.desktop.upload.manager.WrapperController', {
         manager: null
     },
     
-    onShow: function() {
-        
-        this.updateAling();
-        
+    onShow: function() {        
+        this.updateAling();        
     },
     
     updateAling: function() {
@@ -38,6 +36,7 @@ Ext.define('Melisa.drive.view.desktop.upload.manager.WrapperController', {
         
         view.setHeight(height);
         view.alignTo(Ext.getBody(), 'br-br', [-24, -24]);
+        view.toFront();
         
     },
     

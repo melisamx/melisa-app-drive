@@ -15,7 +15,7 @@ class PagingRequest extends WithFilter
         'start'=>'bail|required|xss|numeric',
         'limit'=>'bail|required|xss|numeric',
         'filter'=>'bail|sometimes|json|filter:idUnit,name',
-        'sort'=>'bail|sometimes|xss|json|sort:name,updatedAt'
+        'sort'=>'bail|sometimes|xss|json|sort:name,updatedAt,createdAt'
     ];
     
     public $rulesFilters = [
