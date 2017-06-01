@@ -1,4 +1,6 @@
-<?php namespace App\Drive;
+<?php
+
+namespace App\Drive;
 
 use Melisa\Laravel\ApplicationBase;
 
