@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds;
+<?php
+
+namespace App\Drive\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -18,7 +20,7 @@ class ApplicationSeeder extends InstallSeeder
             'description'=>'Application Drive',
             'nameSpace'=>'Melisa.drive',
             'typeSecurity'=>'art',
-            'version'=>'1.3.0'
+            'version'=>'1.3.1'
         ]);
         
     }
