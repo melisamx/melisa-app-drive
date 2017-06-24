@@ -1,12 +1,12 @@
-<?php namespace App\Drive\Logics\Files;
+<?php
 
-use Illuminate\Support\Facades\Storage;
+namespace App\Drive\Logics\Files;
+
 use Illuminate\Http\UploadedFile;
 use Melisa\core\LogicBusiness;
 use App\Drive\Repositories\FilesRepository;
 use App\Drive\Repositories\MimesTypesRepository;
 use App\Drive\Repositories\UnitsRepository;
-use App\Drive\Http\Requests\Files\UploadRequest;
 
 /**
  * Register upload file
@@ -23,9 +23,9 @@ class UploadLogic
     const MIME_TYPE_DEFAULT = 'application/vnd.melisa-apps.unknown';
 
     public function __construct(
-            FilesRepository $filesRepo,
-            MimesTypesRepository $mimesRepo,
-            UnitsRepository $unitsRepo
+        FilesRepository $filesRepo,
+        MimesTypesRepository $mimesRepo,
+        UnitsRepository $unitsRepo
     )
     {
         $this->filesRepo = $filesRepo;    
@@ -34,8 +34,7 @@ class UploadLogic
     }
     
     public function init(UploadedFile $file)
-    {
-        
+    {        
         $this->filesRepo->beginTransaction();
         
         $unit = $this->getUnitAsign();
@@ -67,13 +66,11 @@ class UploadLogic
         }
         
         $this->filesRepo->commit();
-        return $event;
-        
+        return $event;        
     }
     
     public function storeFile(&$file, &$unit)
-    {
-        
+    {        
         $extension = $file->getClientOriginalExtension();
         $name = $file->getClientOriginalName();
         $mime = $file->getClientMimeType();
@@ -98,12 +95,10 @@ class UploadLogic
             'md5'=>$md5File,
             'realpath'=>$realpath,
         ];
-
     }
     
     public function createFile(&$fileInfo, $idUnit, $idMime)
-    {
-                
+    {                
         return $this->filesRepo->create([
             'idUnit'=>$idUnit,
             'idMimeType'=>$idMime,
@@ -113,34 +108,29 @@ class UploadLogic
             'fileExtension'=>$fileInfo['extension'],
             'size'=>$fileInfo['size'],
             'md5Checksum'=>$fileInfo['md5'],
-        ]);
-        
+        ]);        
     }
     
     public function getUnitAsign()
-    {
-        
+    {        
         $unit = $this->unitsRepo->getModel()->first();
         
         if( !$unit) {
             return false;
         }
         
-        return $unit;
-        
+        return $unit;        
     }
     
     public function getMimeTypeAsign($mime)
-    {
-        
+    {        
         $mime = $this->mimesRepo->findBy('name', $mime);
         
         if( !$mime) {
             $mime = $this->mimesRepo->findBy('name', self::MIME_TYPE_DEFAULT);
         }
         
-        return $mime;
-        
+        return $mime;        
     }
     
 }

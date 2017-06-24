@@ -9,16 +9,15 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-abstract class MimesTypesAbstract extends Base
+abstract class MigrationsAbstract extends Base
 {    
     protected $connection = 'drive';
-    protected $table = 'mimesTypes';
+    protected $table = 'migrations';
     public $timestamps = false;
     public $incrementing = true;
     protected $fillable = [
         'id',
-        'name',
-        'iconCls',
-        'order'
+        'migration',
+        'batch'
     ];    
 }

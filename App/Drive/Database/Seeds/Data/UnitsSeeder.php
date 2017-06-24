@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Data;
+<?php
+
+namespace App\Drive\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Drive\Models\Units;
@@ -12,8 +14,7 @@ class UnitsSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $identity = $this->findIdentity();
         $source = env('UNIT_SOURCE');
         
@@ -22,8 +23,7 @@ class UnitsSeeder extends InstallSeeder
         ], [
             'source'=>$source,
             'idIdentityCreated'=>$identity->id
-        ]);
-        
+        ]);        
     }
     
 }

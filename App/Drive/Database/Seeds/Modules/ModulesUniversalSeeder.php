@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules;
 
 use Illuminate\Database\Seeder;
 
@@ -11,13 +13,11 @@ class ModulesUniversalSeeder extends Seeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->call(Universal\FilesPagingSeeder::class);
         $this->call(Universal\Files\ViewSeeder::class);
         $this->call(Universal\Images\ViewSeeder::class);
-        $this->call(Universal\Files\PublicSeeder::class);
-        
+        $this->call(Universal\Files\PublicSeeder::class);        
     }
     
 }

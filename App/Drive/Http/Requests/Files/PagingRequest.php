@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Http\Requests\Files;
+<?php
+
+namespace App\Drive\Http\Requests\Files;
 
 use Melisa\Laravel\Http\Requests\WithFilter;
 
@@ -19,7 +21,7 @@ class PagingRequest extends WithFilter
     ];
     
     public $rulesFilters = [
-        'idUnit'=>'bail|sometimes|alpha_dash|size:36|xss|exists:drive.Units,id',
+        'idUnit'=>'bail|sometimes|alpha_dash|size:36|xss|exists:drive.units,id',
     ];
     
 }

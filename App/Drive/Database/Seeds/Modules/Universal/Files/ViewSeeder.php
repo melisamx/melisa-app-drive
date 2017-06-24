@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules\Universal\Files;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules\Universal\Files;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class ViewSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Ver archivo',
@@ -25,8 +26,7 @@ class ViewSeeder extends InstallSeeder
                     'pattern'=>'read'
                 ],
             ],
-        ]);
-        
+        ]);        
     }
     
 }

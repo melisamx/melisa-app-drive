@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Modules\Phone\Files;
+<?php
+
+namespace App\Drive\Modules\Phone\Files;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -12,8 +14,8 @@ class SelectModule extends Outbuildings
     
     public $event = 'drive.files.phone.select.access';
     
-    public function dataDictionary() {
-        
+    public function dataDictionary()
+    {        
         return [
             'success'=>true,
             'assets'=>[
@@ -30,8 +32,7 @@ class SelectModule extends Outbuildings
                     'title'=>'Seleccionar archivos'
                 ]
             ]
-        ];
-        
+        ];        
     }
     
 }

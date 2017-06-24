@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds;
+<?php
+
+namespace App\Drive\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class OptionsSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installOption('option.drive.access', [
             'name'=>'Option main de aplicación drive',
             'text'=>'Drive',
@@ -20,8 +21,7 @@ class OptionsSeeder extends InstallSeeder
             'iconClassMedium'=>'x-fa fa-cube',
             'iconClassLarge'=>'x-fa fa fa-cube',
             'isSubMenu'=>true
-        ]);
-        
+        ]);        
     }
     
 }

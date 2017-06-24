@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Http\Requests\Files;
+<?php
+
+namespace App\Drive\Http\Requests\Files;
 
 use Melisa\Laravel\Http\Requests\WithFilter;
 

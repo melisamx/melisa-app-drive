@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules\Desktop;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules\Desktop;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class BrowserViewSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Ver navegador de archivos',
@@ -48,8 +49,7 @@ class BrowserViewSeeder extends InstallSeeder
         $this->installAssetCss('app.drive.phone.browser.view', [
             'name'=>'CSS ver navegador de archivos (phone)',
             'path'=>'/drive/css/phone-browser-view.css',
-        ]);
-        
+        ]);        
     }
     
 }

@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Criteria\Files;
+<?php
+
+namespace App\Drive\Criteria\Files;
 
 use Melisa\Laravel\Criteria\FilterCriteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
@@ -14,21 +16,20 @@ class WithFiltersCriteria extends FilterCriteria
     use ApplySort;
     
     public function apply($model, RepositoryInterface $repository, array $input = [])
-    {
-        
+    {        
         $builder = parent::apply($model, $repository, $input);
         
         $builder = $builder
-            ->join('MimesTypes as mt', 'mt.id', '=', 'Files.idMimeType')
+            ->join('mimesTypes as mt', 'mt.id', '=', 'files.idMimeType')
             ->orderBy('mt.order', 'asc')
             ->select([
-                'Files.*',
+                'files.*',
                 'mt.iconCls',
                 'mt.name as mimeType'
             ]);
         
         if( empty($input['sort'])) {
-            $builder = $builder->orderBy('Files.name', 'asc');
+            $builder = $builder->orderBy('files.name', 'asc');
         } else {
             $builder = $this->applySort($builder, $input);
         }

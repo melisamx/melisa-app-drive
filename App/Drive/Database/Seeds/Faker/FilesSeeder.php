@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Faker;
+<?php
+
+namespace App\Drive\Database\Seeds\Faker;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Drive\Models\Files;
@@ -12,10 +14,8 @@ class FilesSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
-        $this->factory(Files::class)->create();
-        
+    {        
+        $this->factory(Files::class)->create();        
     }
     
 }

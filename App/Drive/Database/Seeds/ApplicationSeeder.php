@@ -13,16 +13,14 @@ class ApplicationSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installApplication('drive', [
             'name'=>'Drive',
             'description'=>'Application Drive',
             'nameSpace'=>'Melisa.drive',
             'typeSecurity'=>'art',
             'version'=>'1.3.1'
-        ]);
-        
+        ]);        
     }
     
 }

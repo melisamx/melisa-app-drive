@@ -6,6 +6,7 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
         'Melisa.ux.grid.Filters'
     ],
 
+    emptyText: 'No hay archivos',
     cls: 'browser',
     bind: {
         store: '{files}'

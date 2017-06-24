@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Repositories;
+<?php
+
+namespace App\Drive\Repositories;
 
 use Melisa\Repositories\Eloquent\Repository;
 
@@ -9,10 +11,9 @@ use Melisa\Repositories\Eloquent\Repository;
 class FilesParentsRepository extends Repository
 {
     
-    public function model() {
-        
-        return 'App\Drive\Models\FilesParents';
-        
+    public function model()
+    {        
+        return 'App\Drive\Models\FilesParents';        
     }
     
 }

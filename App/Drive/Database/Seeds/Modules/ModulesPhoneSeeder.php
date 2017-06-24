@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules;
 
 use Illuminate\Database\Seeder;
 
@@ -11,10 +13,8 @@ class ModulesPhoneSeeder extends Seeder
 {
     
     public function run()
-    {
-        
-        $this->call(Phone\Files\SelectSeeder::class);
-        
+    {        
+        $this->call(Phone\Files\SelectSeeder::class);        
     }
     
 }

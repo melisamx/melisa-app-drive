@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Http\Controllers\Modules;
+<?php
+
+namespace App\Drive\Http\Controllers\Modules;
 
 use Melisa\Laravel\Http\Controllers\Controller;
 use App\Drive\Modules\Desktop\Files\SelectModule;

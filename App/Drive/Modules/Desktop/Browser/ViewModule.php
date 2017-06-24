@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Modules\Desktop\Browser;
+<?php
+
+namespace App\Drive\Modules\Desktop\Browser;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -12,8 +14,8 @@ class ViewModule extends Outbuildings
     
     public $event = 'drive.browser.view.access';
     
-    public function dataDictionary() {
-        
+    public function dataDictionary()
+    {        
         return [
             'success'=>true,
             'assets'=>[
@@ -30,8 +32,7 @@ class ViewModule extends Outbuildings
                     'title'=>'Navegador de archivos'
                 ]
             ]
-        ];
-        
+        ];        
     }
     
 }
