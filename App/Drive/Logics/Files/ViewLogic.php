@@ -31,14 +31,29 @@ class ViewLogic
             return false;
         }
         
+        $pathFile = $this->getPathFile($file);
+        
+        if( !$this->existFile($pathFile)) {
+            return false;
+        }
+        
         return [
-            'path'=>$this->getPathFile($file),
+            'path'=>$pathFile,
             'headers'=>$this->getHeadersFile($file),
         ];        
     }
     
+    public function existFile($pathFile)
+    {
+        if( file_exists($pathFile)) {
+            return true;
+        }
+        
+        return $this->error('El archivo fisico no existe o acaba de ser eliminado');
+    }
+    
     public function getHeadersFile(&$file)
-    {        
+    {
         if( in_array($file->mime->name, [
             'image/jpeg',
             'image/png',
@@ -78,7 +93,7 @@ class ViewLogic
     }
     
     public function getPathFile(&$file)
-    {        
+    {
         $path = $file->unit->source;
         $path .= $file->originalFilename;
         return $path;        

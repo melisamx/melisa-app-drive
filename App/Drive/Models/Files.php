@@ -9,6 +9,15 @@ namespace App\Drive\Models;
 class Files extends FilesAbstract
 {
     
+    public function mime()
+    {
+        return $this->hasOne('App\Drive\Models\MimesTypes', 'id', 'idMimeType');
+    }
     
+    public function unit()
+    {
+        return $this->hasOne('App\Drive\Models\Units', 'id', 'idUnit');
+    }
+
     
 }
