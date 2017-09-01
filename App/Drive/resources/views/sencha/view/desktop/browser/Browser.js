@@ -35,7 +35,7 @@ Ext.define('Melisa.drive.view.desktop.browser.Browser', {
                 }
                 
                 return [
-                    '<i class="fa fa-circle fa-stack-2x"></i>',
+                    '<i class="fa fa-circle fa-stack-2x circle-shadown"></i>',
                     '<i class="',
                     record.data.iconCls,
                     '"></i> ',
