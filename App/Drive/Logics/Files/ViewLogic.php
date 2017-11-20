@@ -6,7 +6,7 @@ use Melisa\core\LogicBusiness;
 use App\Drive\Repositories\FilesRepository;
 
 /**
- * View upload file
+ * View file
  *
  * @author Luis Josafat Heredia Contreras
  */

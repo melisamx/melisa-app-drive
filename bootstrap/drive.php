@@ -27,7 +27,7 @@ $app = new Application(realpath(__DIR__ . '/../App/Drive'));
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Melisa\Laravel\Http\Kernel::class
+    Melisa\Laravel\Http\KernelSecure::class
 );
 
 $app->singleton(
