@@ -20,7 +20,7 @@ class FilesController extends Controller
 {
     
     public function paging(PagingRequest $request, FilesRepository $repository, WithFiltersCriteria $criteria)
-    {        
+    {
         $logic = new PagingLogics($repository, $criteria);        
         return $logic->init($request->allValid());        
     }
