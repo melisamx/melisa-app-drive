@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Drive\Criteria\Files;
+namespace App\Drive\Criteria\Folders;
 
 use Melisa\Laravel\Criteria\FilterCriteria;
 use Melisa\Laravel\Criteria\ApplySort;
@@ -20,18 +20,13 @@ class WithFiltersCriteria extends FilterCriteria
         
         $builder = $builder
             ->join('mimesTypes as mt', 'mt.id', '=', 'files.idMimeType')
-            ->leftJoin('filesParents as fp', 'fp.idFile', '=', 'files.id')
             ->orderBy('mt.order', 'asc')
-            ->with('parent')
+            ->where('mt.name', 'application/vnd.melisa-apps.folder')
             ->select([
                 'files.*',
                 'mt.iconCls',
                 'mt.name as mimeType'
             ]);
-        
-        if( !$this->existFilter('idFileParent', $input)) {
-            $builder = $builder->whereNull('fp.id');
-        }
         
         if( empty($input['sort'])) {
             $builder = $builder->orderBy('files.name', 'asc');
@@ -44,7 +39,9 @@ class WithFiltersCriteria extends FilterCriteria
     
     public function overrideFilterIdFileParent($model, $filter)
     {
-        return $model->where('fp.idFileParent', $filter->value);
+        return $model
+            ->join('filesParents as fp', 'fp.idFile', 'files.id')
+            ->where('fp.idFileParent', $filter->value);
     }
     
 }

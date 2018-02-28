@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Drive\Http\Requests\Files;
+namespace App\Drive\Http\Requests\Folders;
 
 use Melisa\Laravel\Http\Requests\WithFilter;
 
@@ -21,8 +21,8 @@ class PagingRequest extends WithFilter
     ];
     
     public $rulesFilters = [
-        'idUnit'=>'sometimes|alpha_dash|size:36|xss|exists:drive.units,id',
-        'idFileParent'=>'sometimes|alpha_dash|size:36|xss|exists:drive.files,id',
+        'idUnit'=>'nullable|size:36|xss|exists:drive.units,id',
+        'idFileParent'=>'nullable|alpha_dash|size:36|xss|exists:drive.files,id',
     ];
     
 }

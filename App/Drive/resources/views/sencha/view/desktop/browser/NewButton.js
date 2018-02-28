@@ -18,7 +18,10 @@ Ext.define('Melisa.drive.view.desktop.browser.NewButton', {
         items: [
             {
                 text: 'Carpeta nueva...',
-                iconCls: 'x-fa fa-folder'
+                iconCls: 'x-fa fa-folder',
+                listeners: {
+                    click: 'onClickAddFolder'
+                }
             },
             {
                 text: 'Subir archivo',

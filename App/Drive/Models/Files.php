@@ -9,6 +9,10 @@ namespace App\Drive\Models;
 class Files extends FilesAbstract
 {
     
+    protected $casts = [
+        'size'=>'double'
+    ];
+
     public function mime()
     {
         return $this->hasOne('App\Drive\Models\MimesTypes', 'id', 'idMimeType');
@@ -18,6 +22,10 @@ class Files extends FilesAbstract
     {
         return $this->hasOne('App\Drive\Models\Units', 'id', 'idUnit');
     }
-
+    
+    public function parent()
+    {
+        return $this->hasOne('App\Drive\Models\FilesParents', 'idFile', 'id');
+    }
     
 }

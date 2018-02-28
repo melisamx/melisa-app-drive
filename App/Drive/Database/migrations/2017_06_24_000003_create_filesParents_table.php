@@ -15,8 +15,8 @@ class CreateFilesParentsTable extends Migration
     {
         Schema::create('filesParents', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('idFile', 36);
-            $table->char('idFileParent', 36);
+            $table->uuid('idFile');
+            $table->uuid('idFileParent');
 
             $table->unique(['idFile', 'idFileParent'], 'unique_filesParents');
 

@@ -15,7 +15,7 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('idIdentityCreated', 36);
+            $table->uuid('idIdentityCreated');
             $table->string('name', 75)->unique();
             $table->boolean('active')->default(1);
             $table->boolean('versionActive')->default(0);
@@ -23,7 +23,7 @@ class CreateUnitsTable extends Migration
             $table->smallInteger('totalFiles')->default(0);
             $table->string('source', 255);
             $table->dateTime('createdAt')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->char('idIdentityUpdated', 36)->nullable();
+            $table->uuid('idIdentityUpdated')->nullable();
             $table->string('description', 200)->nullable();
             $table->dateTime('updatedAt')->nullable();
         });

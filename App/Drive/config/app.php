@@ -169,13 +169,12 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        Laravel\Passport\PassportServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        Melisa\Laravel\Providers\AppServiceProvider::class,
+        App\Drive\Providers\AppServiceProvider::class,
         Melisa\Laravel\Providers\AuthServiceProvider::class,
         // Melisa\Laravel\Providers\BroadcastServiceProvider::class,
         Melisa\Laravel\Providers\EventServiceProvider::class,

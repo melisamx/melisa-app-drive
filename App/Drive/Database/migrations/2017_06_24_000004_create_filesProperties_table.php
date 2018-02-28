@@ -15,7 +15,7 @@ class CreateFilesPropertiesTable extends Migration
     {
         Schema::create('filesProperties', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('idFile', 36);
+            $table->uuid('idFile');
             $table->string('key', 100);
             $table->boolean('isPublic')->default(1);
             $table->text('value')->nullable();

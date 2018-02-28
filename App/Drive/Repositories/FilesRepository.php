@@ -16,4 +16,17 @@ class FilesRepository extends Repository
         return 'App\Drive\Models\Files';        
     }
     
+    public function withDetail($id)
+    {
+        return $this->getModel()
+            ->with([
+                'mime',
+                'unit',
+                'parent'=>function($query) {
+                    $query->with('fileParent');
+                },
+            ])
+            ->find($id);
+    }
+    
 }

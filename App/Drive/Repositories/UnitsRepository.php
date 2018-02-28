@@ -16,4 +16,10 @@ class UnitsRepository extends Repository
         return 'App\Drive\Models\Units';        
     }
     
+    public function getUnitDefault()
+    {
+        return $this->getModel()
+            ->first();
+    }
+    
 }

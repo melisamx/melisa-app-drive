@@ -1,0 +1,15 @@
+{
+    "name": "Crear carpeta",
+    "url": "/drive.php/folders/",
+    "description": "Módulo para crear carpeta",
+    "task": {
+        "key": "task.drive.folders.create",
+        "name": "Acceso a crear carpeta",
+        "description": "Permitir crear carpeta",
+        "pattern": "create"
+    },
+    "event": {
+        "key": "event.drive.folders.create.success",
+        "description": "Carpeta creada"
+    }
+}
