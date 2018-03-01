@@ -27,12 +27,12 @@ Ext.define('Melisa.drive.ux.uploader.Manager', {
         
     },
     
-    addFiles: function(files) {
+    addFiles: function(files, idFileParent) {
         
         var me = this,
             queue = me.createQueue();
         
-        queue.addFiles(files);
+        queue.addFiles(files, idFileParent);
         
     },
     

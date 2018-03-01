@@ -25,9 +25,12 @@ class FilesController extends Controller
         return $logic->init($request->allValid());        
     }
     
-    public function create(UploadRequest $request, UploadLogic $logic)
-    {        
-        return response()->data($logic->init($request->file));        
+    public function create(
+        UploadRequest $request,
+        UploadLogic $logic
+    )
+    {
+        return response()->data($logic->init($request->allValid()));        
     }
     
     public function view($id, ViewLogic $logic)

@@ -15,6 +15,7 @@ use App\Drive\Repositories\FilesParentsRepository;
  */
 class CreateLogic extends BaseCreateLogic
 {
+    use FileParentTrait;
     
     protected $repoMimes;
     protected $repoUnits;
@@ -61,43 +62,6 @@ class CreateLogic extends BaseCreateLogic
         }
         
         return $idFile;
-    }
-    
-    public function saveFileParent($idFile, &$input)
-    {
-        if( !isset($input['idFileParent'])) {
-            return true;
-        }
-        
-        if( !$this->isValidFileParent($input['idFileParent'])) {
-            return false;
-        }
-        
-        $result = $this->repoFilesParents->updateOrCreate([
-            'idFile'=>$idFile,
-            'idFileParent'=>$input['idFileParent'],
-        ]);
-        
-        if( $result) {
-            return true;
-        }
-        
-        return $this->error('drive.2');
-    }
-    
-    public function isValidFileParent($idFileParent)
-    {
-        $fileParent = $this->repository->withDetail($idFileParent);
-        
-        if( !$fileParent) {
-            return $this->error('drive.3');
-        }
-        
-        if( $fileParent->mime->name === MimesTypesRepository::MIME_FOLDER) {
-            return true;
-        }
-        
-        return $this->error('drive.4');
     }
     
     public function getReturnData(&$event, &$input)

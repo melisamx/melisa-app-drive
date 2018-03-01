@@ -147,11 +147,11 @@ Ext.define('Melisa.drive.view.desktop.browser.WrapperController', {
     onFilesSelected: function(button, files) {
         
         var me = this,
-            manager = me.createManager();
+            manager = me.createManager(),
+            idFileParent = me.getFileParent();
         
-        manager.addFiles(files);
-        manager.show();
-        
+        manager.addFiles(files, idFileParent);
+        manager.show();        
     },
     
     createManager: function() {

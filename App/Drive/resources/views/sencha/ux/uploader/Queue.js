@@ -30,7 +30,7 @@ Ext.define('Melisa.drive.ux.uploader.Queue', {
      * 
      * @param {FileList} fileList
      */
-    addFiles : function(fileList) {
+    addFiles : function(fileList, idFileParent) {
         
         var i,
             items = [],
@@ -41,7 +41,7 @@ Ext.define('Melisa.drive.ux.uploader.Queue', {
         }
 
         for (i = 0; i < num; i++) {
-            items.push(this.createItem(fileList[i]));
+            items.push(this.createItem(fileList[i], idFileParent));
         }
 
         this.addAll(items);
@@ -220,10 +220,11 @@ Ext.define('Melisa.drive.ux.uploader.Queue', {
      * @param {File} file
      * @return {Ext.ux.upload.Item}
      */
-    createItem : function(file) {
+    createItem : function(file, idFileParent) {
 
         var item = Ext.create('Melisa.drive.Item', {
-            fileApiObject : file
+            fileApiObject : file,
+            idFileParent: idFileParent
         });
         
         item.on('changestatus', this.onItemChangeStatus, this);

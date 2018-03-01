@@ -19,8 +19,8 @@ class ApplicationSeeder extends InstallSeeder
             'description'=>'Application Drive',
             'nameSpace'=>'Melisa.drive',
             'typeSecurity'=>'art',
-            'version'=>'1.7.0',
-            'comments'=>'Se agrego soporte para navegar entre archivos de tipo carpetas'
+            'version'=>'1.8.0',
+            'comments'=>'Se agrego soporte para subir achivos en carpeta especifica'
         ]);        
     }
     

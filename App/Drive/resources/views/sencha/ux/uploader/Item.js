@@ -24,6 +24,7 @@ Ext.define('Melisa.drive.ux.uploader.Item', {
      * A native file API object
      */
     fileApiObject : null,
+    idFileParent: null,
 
     /**
      * @cfg {String}
@@ -63,6 +64,10 @@ Ext.define('Melisa.drive.ux.uploader.Item', {
 
     getFilename : function() {
         return this.getName();
+    },
+
+    getIdFileParent : function() {
+        return this.idFileParent;
     },
 
     getSize : function() {

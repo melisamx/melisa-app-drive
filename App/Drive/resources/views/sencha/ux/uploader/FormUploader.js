@@ -36,12 +36,16 @@ Ext.define('Melisa.drive.ux.uploader.FormUploader', {
     },
 
     uploadItem : function(item) {
-        var file = item.getFileApiObject();
+        var file = item.getFileApiObject(),
+            idFileParent = item.getIdFileParent();
 
         item.setUploading();
 
         var formData = new FormData();
         formData.append('file', file);
+        if( idFileParent) {
+            formData.append('idFileParent', idFileParent);
+        }
 
         var xhr = this.initConnection(),
             headers = Ext.apply([], this.getHeaders());

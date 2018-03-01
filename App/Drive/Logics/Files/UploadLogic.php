@@ -2,11 +2,12 @@
 
 namespace App\Drive\Logics\Files;
 
-use Illuminate\Http\UploadedFile;
 use Melisa\core\LogicBusiness;
 use App\Drive\Repositories\FilesRepository;
 use App\Drive\Repositories\MimesTypesRepository;
 use App\Drive\Repositories\UnitsRepository;
+use App\Drive\Logics\Folders\FileParentTrait;
+use App\Drive\Repositories\FilesParentsRepository;
 
 /**
  * Register upload file
@@ -16,29 +17,33 @@ use App\Drive\Repositories\UnitsRepository;
 class UploadLogic
 {
     use LogicBusiness;
+    use FileParentTrait;
     
-    protected $filesRepo;
+    protected $repository;
     protected $mimesRepo;
     protected $unitsRepo;
+    protected $repoFilesParents;
     const MIME_TYPE_DEFAULT = 'application/vnd.melisa-apps.unknown';
 
     public function __construct(
-        FilesRepository $filesRepo,
+        FilesRepository $repository,
         MimesTypesRepository $mimesRepo,
-        UnitsRepository $unitsRepo
+        UnitsRepository $unitsRepo,
+        FilesParentsRepository $repoFilesParents
     )
     {
-        $this->filesRepo = $filesRepo;    
+        $this->repository = $repository;    
         $this->mimesRepo = $mimesRepo;    
-        $this->unitsRepo = $unitsRepo;    
+        $this->unitsRepo = $unitsRepo;
+        $this->repoFilesParents = $repoFilesParents;
     }
     
-    public function init(UploadedFile $file)
+    public function init(array $input)
     {        
-        $this->filesRepo->beginTransaction();
+        $this->repository->beginTransaction();
         
         $unit = $this->getUnitAsign();
-        $fileInfo = $this->storeFile($file, $unit);
+        $fileInfo = $this->storeFile($input['file'], $unit);
         
         if ( !$fileInfo) {
             return false;
@@ -48,7 +53,11 @@ class UploadLogic
         $idFile = $this->createFile($fileInfo, $unit->id, $mime->id);
         
         if( !$idFile) {
-            return $this->filesRepo->rollBack();
+            return $this->repository->rollBack();
+        }
+        
+        if( !$this->saveFileParent($idFile, $input)) {
+            return false;
         }
         
         $event = [
@@ -62,10 +71,10 @@ class UploadLogic
         ];
         
         if( !$this->emitEvent('app.drive.file.upload.success', $event)) {
-            return $this->filesRepo->rollBack();
+            return $this->repository->rollBack();
         }
         
-        $this->filesRepo->commit();
+        $this->repository->commit();
         return $event;        
     }
     
@@ -99,7 +108,7 @@ class UploadLogic
     
     public function createFile(&$fileInfo, $idUnit, $idMime)
     {                
-        return $this->filesRepo->create([
+        return $this->repository->create([
             'idUnit'=>$idUnit,
             'idMimeType'=>$idMime,
             'idIdentityCreated'=>$this->getIdentity(),
