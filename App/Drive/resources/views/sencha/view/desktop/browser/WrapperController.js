@@ -124,6 +124,7 @@ Ext.define('Melisa.drive.view.desktop.browser.WrapperController', {
         
         if( record.get('root')) {
             files.clearFilter();
+            me.setFileParent(null);
             return;
         }
         
