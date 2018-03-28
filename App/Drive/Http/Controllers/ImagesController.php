@@ -13,7 +13,12 @@ use App\Drive\Logics\Files\Images\ResizeLogic;
 class ImagesController extends Controller
 {
     
-    public function view($id, $width, $height, ResizeLogic $logic)
+    public function view(
+        $id, 
+        $width, 
+        $height, 
+        ResizeLogic $logic
+    )
     {        
         $fileConfig = $logic->init($id, $width, $height);
         

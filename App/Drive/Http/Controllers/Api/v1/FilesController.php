@@ -3,7 +3,7 @@
 namespace App\Drive\Http\Controllers\Api\v1;
 
 use Melisa\Laravel\Http\Controllers\Controller;
-use Melisa\Laravel\Logics\PagingLogics;
+use Melisa\Laravel\Logics\PagingLogic;
 use App\Drive\Http\Requests\Files\PagingRequest;
 use App\Drive\Http\Requests\Files\UploadRequest;
 use App\Drive\Repositories\FilesRepository;
@@ -42,8 +42,9 @@ class FilesController extends Controller
         WithFiltersCriteria $criteria
     )
     {
-        $logic = new PagingLogics($repository, $criteria);        
-        return $logic->init($request->allValid());        
+        $logic = new PagingLogic($repository, $criteria);        
+        $result = $logic->init($request->allValid());
+        return response()->paging($result);
     }
     
     public function create(
