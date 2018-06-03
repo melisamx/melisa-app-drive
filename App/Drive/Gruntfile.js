@@ -17,7 +17,8 @@ module.exports = function(grunt) {
             },
             all: {
                 files: {
-                    '<%= pkg.output %>css/browser-view.css': '<%= pkg.src %>less/browser-view.less'
+                    '<%= pkg.output %>css/browser-view.css': '<%= pkg.src %>less/browser-view.less',
+                    '<%= pkg.output %>css/phone-browser-view.css': '<%= pkg.src %>less/phone-browser-view.less'
                 }
             }
         },

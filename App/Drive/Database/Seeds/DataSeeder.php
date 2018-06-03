@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds;
+<?php
+
+namespace App\Drive\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,11 +13,9 @@ class DataSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->call(Data\MimesTypesSeeder::class);
-        $this->call(Data\UnitsSeeder::class);
-        
+        $this->call(Data\UnitsSeeder::class);        
     }
     
 }

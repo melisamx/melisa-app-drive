@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules\Universal;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules\Universal;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class FilesPagingSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Paginar lista de archivos',
@@ -25,8 +26,7 @@ class FilesPagingSeeder extends InstallSeeder
                     'pattern'=>'read'
                 ],
             ],
-        ]);
-        
+        ]);        
     }
     
 }

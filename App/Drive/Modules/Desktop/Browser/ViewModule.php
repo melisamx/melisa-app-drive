@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Modules\Files;
+<?php
+
+namespace App\Drive\Modules\Desktop\Browser;
 
 use App\Core\Logics\Modules\Outbuildings;
 
@@ -7,30 +9,31 @@ use App\Core\Logics\Modules\Outbuildings;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class SelectModule extends Outbuildings
+class ViewModule extends Outbuildings
 {
     
-    public $event = 'drive.files.select.access';
+    public $event = 'drive.browser.view.access';
     
-    public function dataDictionary() {
-        
+    public function dataDictionary()
+    {        
         return [
             'success'=>true,
             'assets'=>[
                 $this->asset('app.drive.browser.view')
             ],
             'data'=>[
+                'token'=>csrf_token(),
                 'modules'=>[
                     'files'=>$this->module('task.drive.files.paging'),
                     'filesView'=>$this->module('task.drive.files.view'),
                     'imagesView'=>$this->module('task.drive.images.view'),
+                    'folders'=>$this->module('task.drive.folders.create'),
                 ],
                 'wrapper'=>[
-                    'title'=>'Seleccionar archivos'
+                    'title'=>'Navegador de archivos'
                 ]
             ]
-        ];
-        
+        ];        
     }
     
 }

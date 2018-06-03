@@ -33,18 +33,10 @@ Ext.define('Melisa.drive.view.desktop.browser.Wrapper', {
                     height: 53,
                     items: [
                         {
-                            xtype: 'label',
-                            cls: 'label',
-                            html: 'Mi unidad'
-                        },
-                        {
-                            xtype: 'drivebrowsernavigationbreadcrumb'
-                        },
-                        '->',
-                        {
-                            xtype: 'textfield',
-                            cls: 'searchfield',
-                            emptyText: 'Search'
+                            xtype: 'drivebrowsernavigationbreadcrumb',
+                            listeners: {
+                                selectionchange: 'onSelectionChangeBreadcrumb'
+                            }
                         }
                     ]
                 }

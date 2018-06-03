@@ -10,16 +10,9 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
+use App\Drive\Application;
 
-require_once __DIR__ . '/../App/Drive/Application.php';
-
-$app = new App\Drive\Application(
-    [
-        'base'=>  realpath(__DIR__ . '/../App/Drive'),
-        'storage'=> realpath(__DIR__ . '/../App/Drive/storage'),
-        'storageSession'=>realpath(__DIR__ . '/../storage/framework/sessions'),
-    ]
-);
+$app = new Application(realpath(__DIR__ . '/../App/Drive'));
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +27,7 @@ $app = new App\Drive\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    Melisa\Laravel\Http\Kernel::class
+    Melisa\Laravel\Http\KernelSecure::class
 );
 
 $app->singleton(

@@ -3,22 +3,85 @@ Ext.define('Melisa.drive.view.desktop.files.select.WrapperController', {
     alias: 'controller.drivefilesselect',
     
     requires: [
-        'Melisa.drive.view.desktop.BrowserDetails'
+        'Melisa.drive.view.desktop.BrowserDetails',
+        'Melisa.drive.view.desktop.upload.manager.Wrapper'
     ],
     
     control: {
         '#wrapperDetails': {
             collapse: 'onCollapseWrapperDetails'
+        },
+        '#': {
+            hide: 'onHide'
         }
     },
     
     config: {
         pitcher: null,
-        pitcherListen: null
+        pitcherListen: null,
+        manager: null
     },
     
     mixins: {
         details: 'Melisa.drive.view.desktop.BrowserDetails'
+    },
+    
+    onHide: function() {
+        
+        var me = this,
+            manager = me.getManager();
+    
+        if( !manager) {
+            return ;
+        }
+        
+        manager.hide();
+    },
+    
+    onClickBtnUploadFile: function() {
+        
+        var me = this,
+            btnBrowseUpload = me.lookup('btnBrowseUpload');
+        
+        btnBrowseUpload.fileInputEl.dom.click();
+        
+    },
+    
+    onFilesSelected: function(button, files) {
+        
+        var me = this,
+            manager = me.createManager();
+        
+        manager.addFiles(files);
+        manager.show();
+        
+    },
+    
+    createManager: function() {
+        
+        var me = this,
+            manager = me.getManager();
+    
+        if( manager) {
+            return manager;
+        }
+        
+        manager = Ext.create('widget.driveuploadmanager', {
+            listeners: {
+                uploadallfinish: me.onUploadAllFinish,
+                scope: me
+            }
+        });
+        manager.getViewModel().set('token', me.getViewModel().get('token'));
+        me.setManager(manager);
+        return manager;
+        
+    },
+    
+    onUploadAllFinish: function () {
+        console.log('onUploadAllFinish');
+        this.getViewModel().getStore('files').load();
+        
     },
     
     init: function() {

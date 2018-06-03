@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Repositories;
+<?php
+
+namespace App\Drive\Repositories;
 
 use Melisa\Repositories\Eloquent\Repository;
 
@@ -9,10 +11,22 @@ use Melisa\Repositories\Eloquent\Repository;
 class FilesRepository extends Repository
 {
     
-    public function model() {
-        
-        return 'App\Drive\Models\Files';
-        
+    public function model()
+    {        
+        return 'App\Drive\Models\Files';        
+    }
+    
+    public function withDetail($id)
+    {
+        return $this->getModel()
+            ->with([
+                'mime',
+                'unit',
+                'parent'=>function($query) {
+                    $query->with('fileParent');
+                },
+            ])
+            ->find($id);
     }
     
 }

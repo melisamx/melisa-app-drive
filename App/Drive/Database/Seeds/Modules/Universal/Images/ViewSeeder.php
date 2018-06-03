@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules\Universal\Images;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules\Universal\Images;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -12,7 +14,6 @@ class ViewSeeder extends InstallSeeder
     
     public function run()
     {
-        
         $this->installModule([
             [
                 'name'=>'Ver imagen',
@@ -25,8 +26,7 @@ class ViewSeeder extends InstallSeeder
                     'pattern'=>'read'
                 ],
             ],
-        ]);
-        
+        ]);        
     }
     
 }

@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Data;
+<?php
+
+namespace App\Drive\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
 use App\Drive\Models\MimesTypes;
@@ -12,16 +14,13 @@ class MimesTypesSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->melisaMimes();
-        $this->realMimes();
-        
+        $this->realMimes();        
     }
     
     public function melisaMimes()
-    {
-        
+    {        
         MimesTypes::updateOrCreate([
             'name'=>'application/vnd.melisa-apps.folder',
         ], [
@@ -31,13 +30,11 @@ class MimesTypesSeeder extends InstallSeeder
         
         MimesTypes::updateOrCreate([
             'name'=>'application/vnd.melisa-apps.unknown'
-        ]);
-        
+        ]);        
     }
     
     public function realMimes()
-    {
-        
+    {        
         MimesTypes::updateOrCreate([
             'name'=>'image/png',
         ], [
@@ -60,8 +57,7 @@ class MimesTypesSeeder extends InstallSeeder
             'name'=>'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         ], [
             'iconCls'=>'x-fa fa fa-file-text'
-        ]);
-        
+        ]);        
     }
     
 }

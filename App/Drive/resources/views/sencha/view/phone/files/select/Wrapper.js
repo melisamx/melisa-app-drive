@@ -1,11 +1,14 @@
 Ext.define('Melisa.drive.view.phone.files.select.Wrapper', {
-    extend: 'Ext.dataview.List',
+    extend: 'Melisa.view.phone.default.Wrapper',
     
     requires: [
         'Melisa.core.Module',
-        'Melisa.view.desktop.window.Modal',
+        'Melisa.view.phone.default.Wrapper',
         'Melisa.drive.view.phone.browser.Browser',
-        'Melisa.drive.view.phone.files.select.WrapperController'
+        'Melisa.drive.view.phone.files.select.WrapperController',
+        'Melisa.drive.view.universal.files.select.WrapperModel',
+        'Melisa.drive.view.phone.files.select.titles.Main',
+        'Melisa.drive.view.phone.files.select.titles.MainBottom'
     ],
     
     mixins: [
@@ -13,36 +16,27 @@ Ext.define('Melisa.drive.view.phone.files.select.Wrapper', {
     ],
     
     controller: 'drivefilesselect',
-    cls: 'app-drive-browser',
-    layout: 'border',
-    bodyPadding: 0,
-    bind: {
-        title: '{wrapper.title}'
-    },
+    cls: 'app-drive-phone-browser',
+    layout: 'card',
     viewModel: {
-        stores: {
-            files: {
-                autoLoad: true,
-                remoteFilter: true,
-                proxy: {
-                    type: 'ajax',
-                    url: '{modules.files}',
-                    reader: {
-                        type: 'json',
-                        rootProperty: 'data'
-                    }
-                }
-            }
-        }
+        type: 'drivefilesselect'
     },
     items: [
         {
-            region: 'center',
-            xtype: 'drivebrowser',
-            listeners: {
-                itemdblclick: 'onItemdblclick'
+            xtype: 'drivefilesselecttitlemain',
+            bind: {
+                hidden: '{lisBrowser.hidden}'
             }
+        },
+        {
+            xtype: 'drivefilesselecttitlemainbottom',
+            bind: {
+                hidden: '{lisBrowser.hidden}'
+            }
+        },
+        {
+            xtype: 'drivebrowser',
+            reference: 'lisBrowser'
         }
-    ]
-    
+    ]  
 });

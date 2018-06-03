@@ -1,4 +1,6 @@
-<?php namespace App\Drive\Database\Seeds\Modules\Desktop\Files;
+<?php
+
+namespace App\Drive\Database\Seeds\Modules\Desktop\Files;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class SelectSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Seleccionar archivos',
@@ -30,8 +31,7 @@ class SelectSeeder extends InstallSeeder
                     'description'=>'Acceso al módulo seleccionar archivos'
                 ]
             ],
-        ]);
-        
+        ]);        
     }
     
 }

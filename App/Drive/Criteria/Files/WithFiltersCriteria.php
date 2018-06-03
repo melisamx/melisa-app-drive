@@ -1,7 +1,8 @@
-<?php namespace App\Drive\Criteria\Files;
+<?php
+
+namespace App\Drive\Criteria\Files;
 
 use Melisa\Laravel\Criteria\FilterCriteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 use Melisa\Laravel\Criteria\ApplySort;
 
 /**
@@ -13,28 +14,37 @@ class WithFiltersCriteria extends FilterCriteria
 {
     use ApplySort;
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
-    {
-        
+    public function apply($model, $repository, array $input = [])
+    {        
         $builder = parent::apply($model, $repository, $input);
         
         $builder = $builder
-            ->join('MimesTypes as mt', 'mt.id', '=', 'Files.idMimeType')
+            ->join('mimesTypes as mt', 'mt.id', '=', 'files.idMimeType')
+            ->leftJoin('filesParents as fp', 'fp.idFile', '=', 'files.id')
             ->orderBy('mt.order', 'asc')
+            ->with('parent')
             ->select([
-                'Files.*',
+                'files.*',
                 'mt.iconCls',
                 'mt.name as mimeType'
             ]);
         
+        if( !$this->existFilter('idFileParent', $input)) {
+            $builder = $builder->whereNull('fp.id');
+        }
+        
         if( empty($input['sort'])) {
-            $builder = $builder->orderBy('Files.name', 'asc');
+            $builder = $builder->orderBy('files.name', 'asc');
         } else {
             $builder = $this->applySort($builder, $input);
         }
         
-        return $builder;
-        
+        return $builder;        
+    }
+    
+    public function overrideFilterIdFileParent($model, $filter)
+    {
+        return $model->where('fp.idFileParent', $filter->value);
     }
     
 }

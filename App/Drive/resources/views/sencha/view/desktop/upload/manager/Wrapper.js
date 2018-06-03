@@ -31,7 +31,7 @@ Ext.define('Melisa.drive.view.desktop.upload.manager.Wrapper', {
         show: 'onShow'
     },
     
-    addFiles: function(files) {
-        this.getController().addFiles(files);
+    addFiles: function(files, idFileParent) {
+        this.getController().addFiles(files, idFileParent);
     }
 });
