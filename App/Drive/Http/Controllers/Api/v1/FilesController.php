@@ -47,12 +47,21 @@ class FilesController extends Controller
         return response()->paging($result);
     }
     
+    public function upload(
+        UploadRequest $request,
+        UploadLogic $logic
+    )
+    {
+        return $this->create($request, $logic);  
+    }
+    
     public function create(
         UploadRequest $request,
         UploadLogic $logic
     )
     {        
-        return response()->data($logic->init($request->file));        
+        $files = $request->allValid();
+        return response()->data($logic->init($files)); 
     }
     
     public function view(

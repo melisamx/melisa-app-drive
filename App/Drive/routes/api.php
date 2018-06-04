@@ -10,6 +10,8 @@ Route::group([
     ], function() {
         Route::get('/', 'FilesController@paging')
             ->middleware('gate:task.drive.files.paging');
+        Route::post('/', 'FilesController@upload')
+            ->middleware('gate:task.api.drive.files.upload');
     });
     Route::group([
         'prefix'=>'folders'

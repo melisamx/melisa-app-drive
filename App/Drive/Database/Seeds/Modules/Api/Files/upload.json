@@ -1,0 +1,15 @@
+{
+    "name": "Subir archivo",
+    "url": "/drive.php/api/v1/files",
+    "description": "Módulo para subir archivo",
+    "task": {
+        "key": "task.api.drive.files.upload",
+        "name": "Acceso a subir archivo",
+        "description": "Permitir subir archivo",
+        "pattern": "update"
+    },
+    "event": {
+        "key": "event.api.drive.files.upload.success",
+        "description": "Se subio archivo"
+    }
+}
